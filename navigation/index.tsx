@@ -69,8 +69,8 @@ function BottomTabNavigator() {
               name="Home"
               component={HomeScreen}
               options={{
-                title: 'Home',
-                tabBarIcon: ({ color }) => <TabBarIcon name="Home" color={color} />,
+                title: '',
+                tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
               }}
         />
 
