@@ -16,14 +16,17 @@ import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import HomeScreen from '../screens/HomeScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+
       <RootNavigator />
     </NavigationContainer>
   );
@@ -58,10 +61,19 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
+       <BottomTab.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{
+                title: 'Home',
+                tabBarIcon: ({ color }) => <TabBarIcon name="Home" color={color} />,
+              }}
+        />
+
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
